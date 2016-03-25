@@ -18,9 +18,3 @@ class GraphicalEngine:
     # Close library
     def close(self):
         self.library.close()
-
-if __name__ == '__main__':
-    gE = GraphicalEngine()
-    gE.loadLibrary('pygletLib', 'PygletLib')
-    gL = gE.library()
-    gL.run()

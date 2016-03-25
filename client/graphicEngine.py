@@ -2,10 +2,9 @@ import importlib
 
 class GraphicalEngine:
 
-    # Load library by name
-    def loadLibrary(self, name):
-        if not self.library:
-            self.library = importlib.import_module(name)
+    # Load library module
+    def loadLibrary(self, name, module):
+        self.library = getattr(importlib.import_module(name), module)
 
     # Draw from library
     def draw(self):
@@ -18,3 +17,9 @@ class GraphicalEngine:
     # Close library
     def close(self):
         self.library.close()
+
+if __name__ == '__main__':
+    gE = GraphicalEngine()
+    gE.loadLibrary('pygletLib', 'PygletLib')
+    gL = gE.library()
+    gL.run()

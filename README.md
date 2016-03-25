@@ -18,9 +18,16 @@
 
 ## Detail components
 * _In working progress_
+* Client side:
+  * Communication module
+  * Graphic engine
+
+* Server side:
+  * Game logic
 
 ## Milestones
 * _In working progress_
+* Milestone 1: REAMDE.me, connection between clients and server
 
 ## Urls of binary and screenshots
 * _In working progress_

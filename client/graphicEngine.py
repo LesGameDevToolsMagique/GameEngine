@@ -2,7 +2,8 @@ import importlib
 
 class GraphicalEngine:
 
-    # Load library module
+    # Load library module, here the name is the file name
+    # and the module the class name
     def loadLibrary(self, name, module):
         self.library = getattr(importlib.import_module(name), module)
 

@@ -11,6 +11,7 @@
 
 ## User Story
 * _In working progress_
+![User Story](/assets/user_story.png)
 
 ## Architecture
 * _In working progress_

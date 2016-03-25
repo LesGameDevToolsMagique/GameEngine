@@ -15,6 +15,7 @@
 
 ## Architecture
 * _In working progress_
+![UML](/assets/uml.png)
 
 ## Detail components
 * _In working progress_

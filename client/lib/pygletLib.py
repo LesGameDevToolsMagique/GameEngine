@@ -7,19 +7,26 @@ class PygletLib:
 
         options = { 'center': True }
         self.add_text('question', 'label', 'Question coming soon', options)
+        self.add_text('answer', 'input_box', 'answer here', { 'center-width': True, 'y': 0 })
 
     # Open a window
     def initWindow(self, width, height):
         self.window = pyglet.window.Window(width, height)
 
-    # Draw
+    # Draw content
     def draw(self):
         for key, value in self.content.iteritems():
 
+            # Center horizontally and vertically
             if value['opts']['center']:
                 value['opts']['x'] = self.window.width//2
                 value['opts']['y'] = self.window.height//2
 
+            # Center horizontally
+            if value['opts']['center-width']:
+                value['opts']['x'] = self.window.width//2
+
+            # Draw label
             if value['type'] == 'label':
                 self.draw_label(value['text'], value['opts']);
 
@@ -33,6 +40,7 @@ class PygletLib:
         document = { 'type': type, 'text': text, 'opts': options }
         self.content[id] = document
 
+    # Draw label
     def draw_label(self, text, opts):
         document = pyglet.text.decode_text(text)
         pyglet.text.Label(document.text, font_name='Times New Roman', font_size=36, x=opts['x'], y=opts['y'], anchor_x='center', anchor_y='center').draw()

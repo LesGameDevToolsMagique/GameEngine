@@ -84,10 +84,10 @@ class PygletLib:
 
     # Draw quads
     def draw_quads(self, opts):
-        upLeft = (opts['x'] - opts['width']//2, opts['y'] + opts['height']//2)
-        upRight = (opts['x'] + opts['width']//2, opts['y'] + opts['height']//2)
-        downLeft = (opts['x'] - opts['width']//2, opts['y'] - opts['height']//2)
-        downRight = (opts['x'] + opts['width']//2, opts['y'] - opts['height']//2)
+        upLeft = (opts['x'], opts['y'] + opts['height'])
+        upRight = (opts['x'] + opts['width'], opts['y'] + opts['height'])
+        downLeft = (opts['x'], opts['y'])
+        downRight = (opts['x'] + opts['width'], opts['y'] - opts['height'])
 
         pyglet.graphics.draw(4, pyglet.gl.GL_QUADS,
                              ('v2f', (upLeft[0], upLeft[1],

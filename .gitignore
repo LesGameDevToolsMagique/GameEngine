@@ -15,7 +15,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -23,6 +22,9 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Testing files
+test*
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -51,6 +53,13 @@ coverage.xml
 
 # Django stuff:
 *.log
+local_settings.py
+
+# Flask instance folder
+instance/
+
+# Scrapy stuff:
+.scrapy
 
 # Sphinx documentation
 docs/_build/
@@ -58,5 +67,24 @@ docs/_build/
 # PyBuilder
 target/
 
-#Ipython Notebook
+# IPython Notebook
 .ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+
+# Spyder project settings
+.spyderproject
+
+# Rope project settings
+.ropeproject

@@ -5,8 +5,7 @@ class PygletLib:
 
     def __init__(self):
         self.content = {}
-        self.resources = Resources('../assets/sprites')
-        self.resources.addImage('wall', 'wall.png');
+        self.resources = Resources()
 
     # Open a window
     def initWindow(self, width, height):
@@ -27,16 +26,16 @@ class PygletLib:
 
             # Draw label
             if value['type'] == 'label':
-                self.draw_label(value['text'], value['opts']);
+                self.drawLabel(value['text'], value['opts']);
 
             # Add input box
             if value['type'] == 'input_box':
                 self.draw_quads(value['opts'])
-                self.draw_input_box(value['text'], value['opts']);
+                self.drawInputBox(value['text'], value['opts']);
 
             # Add sprite
             if value['type'] == 'sprite':
-                self.draw_sprite(value['opts']['name'], value['opts'])
+                self.drawSprite(value['opts']['name'], value['opts'])
 
     # Update content
     def update(self, instructions):
@@ -51,39 +50,39 @@ class PygletLib:
                 del self.content[key]
 
     # Set sprite dimension
-    def set_sprite_dimension(self, sprite, width, height):
+    def setSpriteDimension(self, sprite, width, height):
         sprite['options']['width'] = width
         sprite['options']['height'] = height
 
     # Add content
-    def add_content(self, id, type, options):
+    def addContent(self, id, type, options):
         content = { 'type': type, 'opts': options }
         self.content[id] = content
 
     # Add a text to containers
-    def add_text(self, id, type, text, options):
+    def addText(self, id, type, text, options):
         document = { 'type': type, 'text': text, 'opts': options }
         self.content[id] = document
 
     # Draw label
-    def draw_label(self, text, opts):
+    def drawLabel(self, text, opts):
         document = pyglet.text.decode_text(text)
         pyglet.text.Label(document.text, font_name='Times New Roman', font_size=36, x=opts['x'], y=opts['y'], anchor_x='center', anchor_y='center').draw()
 
     # Draw sprite
-    def draw_sprite(self, name, opts):
+    def drawSprite(self, name, opts):
         width = self.window.width // opts['width']
         height = self.window.height // opts['height']
         self.resources.setImageDimension(self.resources.assets[name], width, height)
         self.resources.assets[name].blit(opts['x'] * width, opts['y'] * height)
 
     # Draw input box
-    def draw_input_box(self, text, opts):
+    def drawInputBox(self, text, opts):
         document = pyglet.text.decode_text(text)
         pyglet.text.Label(document.text, font_name='Times New Roman', font_size=36, color=(0, 0, 0, 255), x=opts['x'], y=opts['y'], anchor_x='center', anchor_y='center').draw()
 
     # Draw quads
-    def draw_quads(self, opts):
+    def drawQuads(self, opts):
         upLeft = (opts['x'], opts['y'] + opts['height'])
         upRight = (opts['x'] + opts['width'], opts['y'] + opts['height'])
         downLeft = (opts['x'], opts['y'])

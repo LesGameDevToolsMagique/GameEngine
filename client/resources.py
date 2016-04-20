@@ -7,7 +7,7 @@ class Resources:
         self.assets = {}
         self.resourcePath = []
 
-    # Add resource path
+    # Add resource path, path can be an array
     def addResourcePath(self, path):
         self.resourcePath.append(path)
         print self.resourcePath

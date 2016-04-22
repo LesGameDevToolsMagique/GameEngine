@@ -10,7 +10,6 @@ class Resources:
     # Add resource path, path can be an array
     def addResourcePath(self, path):
         self.resourcePath.append(path)
-        print self.resourcePath
 
     # Add resource to assets array
     def addImage(self, key, image):
